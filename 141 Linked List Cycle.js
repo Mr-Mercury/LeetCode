@@ -16,13 +16,15 @@ var hasCycle = function(head) {
     let slow = head; 
     let cycle = false; 
 
-    while (slow.next !== null) {
-        if (fast === slow) {cycle = true; break};
-
+    while (fast && fast.next !== null) {
         fast = fast.next.next;
         slow = slow.next;
+
+        if (fast === slow) {cycle = true; break};
     }
-}
+
+    return cycle; 
+};
 
 // O(n) memory solution 
 var hasCycleNoPointer = function(head) {
