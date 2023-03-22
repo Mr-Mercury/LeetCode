@@ -1,9 +1,7 @@
 var isValid = function(s) {
     
     let letter = '';
-    let curly = 0;
-    let paren = 0;
-    let brack = 0;
+    let left = 0;
     const len = s.length;
     let closing = [];
 
@@ -13,36 +11,36 @@ var isValid = function(s) {
 
         switch (letter) {
             case '{': 
-                curly++; 
+                left++; 
                 closing.push('}');
                 break;
             case '(':
-                paren++;
+                left++;
                 closing.push(')');
                 break;
             case '[': 
-                brack++; 
+                left++; 
                 closing.push(']');
                 break;          
             case '}':
-                if (curly <= 0 || closing[closing.length-1] !== '}') return false;
-                curly--; 
+                if (left <= 0 || closing[closing.length-1] !== '}') return false;
+                left--; 
                 closing.pop()
                 break;
             case ')':
-                if (paren <= 0 || closing[closing.length-1] !== ')') return false;
-                paren--; 
+                if (left <= 0 || closing[closing.length-1] !== ')') return false;
+                left--; 
                 closing.pop();
                 break;
             case ']':
-                if (brack <= 0 || closing[closing.length-1] !== ']') return false;
-                brack--;
+                if (left <= 0 || closing[closing.length-1] !== ']') return false;
+                left--;
                 closing.pop();
                 break;
         }
     }
 
-    if (brack > 0 || curly > 0 || paren > 0) {
+    if (left > 0) {
         return false
     } else return true; 
 };
