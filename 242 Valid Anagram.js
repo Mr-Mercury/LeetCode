@@ -1,7 +1,8 @@
 var isAnagram = function(s, t) {
   const sDict = {};
   let char;
-
+  if (s.length !== t.length) return false;
+  
   while (s.length) {
     char = s.slice(0,1);
     s = s.slice(1);
