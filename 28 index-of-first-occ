@@ -4,12 +4,15 @@
  * @return {number}
  */
 
-function strStrSimple (haystack, needle) {
-    haystack.indexOf(needle)
+// String Method Solution
+function strStr (haystack, needle) {
+    if (!needle) return -1;
+    const answer = haystack.indexOf(needle);
+    if (answer > -1) {return answer} else {return -1}
 }
 
-// Version coded out
-var strStr = function(haystack, needle) {
+// Coded out version
+var strStrCoded = function(haystack, needle) {
     
     if (!needle || needle.length < 1) {return -1} 
     
