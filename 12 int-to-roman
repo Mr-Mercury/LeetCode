@@ -1,0 +1,90 @@
+var intToRoman = function(num) {
+    if (!num) return;
+
+    let answer = ''; 
+    
+    function recurser () {
+        if (num === 0) return; 
+
+        if (num >= 1000) {
+            answer = answer + 'M';
+            num -= 1000;
+            return recurser(); 
+        }
+
+        if (num >= 900) {
+            answer = answer + 'CM';
+            num -= 900;
+            return recurser();
+        }
+
+        if (num >= 500) {
+            answer = answer + 'D';
+            num -= 500;
+            return recurser();
+        }
+
+        if (num >= 400) {
+            answer = answer + 'CD';
+            num -= 400;
+            return recurser();
+        }
+
+        if (num >= 100) {
+            answer = answer + 'C';
+            num -= 100;
+            return recurser();
+        }
+
+        if (num >= 90) {
+            answer = answer + 'XC';
+            num -= 90;
+            return recurser();
+        }
+
+        if (num >= 50) {
+            answer = answer + 'L';
+            num -= 50;
+            return recurser();
+        }
+
+        if (num >= 40) {
+            answer = answer + 'XL';
+            num -= 40;
+            return recurser();
+        }
+
+        if (num >= 10) {
+            answer = answer + 'X';
+            num -= 10;
+            return recurser();
+        }
+
+        if (num >= 9) {
+            answer = answer + 'IX';
+            num -= 9;
+            return recurser();
+        }
+
+        if (num >= 5) {
+            answer = answer + 'V';
+            num -= 5;
+            return recurser();
+        }
+
+        if (num >= 4) {
+            answer = answer + 'IV';
+            num -= 4;
+            return recurser();
+        }
+        
+        if (num >= 1) {
+            answer = answer + 'I';
+            num -= 1;
+            return recurser();
+        }
+    }
+
+    recurser();
+    return answer; 
+};
