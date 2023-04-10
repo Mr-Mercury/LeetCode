@@ -3,6 +3,12 @@
  * @param {string} needle
  * @return {number}
  */
+
+function strStrSimple (haystack, needle) {
+    haystack.indexOf(needle)
+}
+
+// Version coded out
 var strStr = function(haystack, needle) {
     
     if (!needle || needle.length < 1) {return -1} 
@@ -18,3 +24,5 @@ var strStr = function(haystack, needle) {
 };
 
 console.log(strStr('mississippi', 'issip' ))
+
+haystack.indexOf(needle)
