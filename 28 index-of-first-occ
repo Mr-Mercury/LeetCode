@@ -17,7 +17,7 @@ var strStrCoded = function(haystack, needle) {
     if (!needle || needle.length < 1) {return -1} 
     
     for (let i = 0; i <= (haystack.length - needle.length); i++) {
-        console.log(haystack.slice( i, i+needle.length ))
+        
         if (haystack.slice( i, i+needle.length ) === needle) {
             return i
         }
