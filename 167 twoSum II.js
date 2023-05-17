@@ -1,23 +1,20 @@
-var twoSum = function(numbers, target) {
-    // Create an object
-    // Check if target - current is in obj, if no, add
-    // if yes, break from loop.  Return first index and last index
+var twoSumSorted = function(numbers, target) {
+    let left = 0;
+    let right = numbers.length-1;
 
-    const cache = {};
-    let first = 0;
-    let second = 0;
-
-    for (let i = 0; i < numbers.length; i++) {
-        if (cache[target-numbers[i]]) { 
-            first = cache[target-numbers[i]] + 1;
-        } else {cache[target-numbers[i]] = i;}
+    while (left < right) {
+        const sum = numbers[left] + numbers[right];
+        
+        if (sum === target) {
+            return [left+1, right+1];
+        }
+        if (sum < target) {
+            left++
+        } else {right--}
     }
-
-    console.log(cache);
-    return [first,second]
-};
-
+    return "No sum found";
+}
 const numbers = [2,7,11,15];
 const target = 9;
 
-console.log(twoSum(numbers, target));
+console.log(twoSumSorted(numbers, target));
