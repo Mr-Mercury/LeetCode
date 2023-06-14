@@ -44,16 +44,20 @@ function lengthOfLongestSubstringWindow(s) {
     const subSet = new Set();
     let index = 0;
     let maxLength = 0; 
+    let currentLength = 0;
 
     for (const char of s) {
 
+        
         while (subSet.has(char)) {
             subSet.delete(s[index]);
             index++;
+            currentLength--;
         }
 
         subSet.add(char);
-        maxLength = Math.max(maxLength, )
+        currentLength++;
+        if (currentLength > maxLength) maxLength = currentLength;
     }
 
     return maxLength;
