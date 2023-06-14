@@ -38,8 +38,7 @@ var lengthOfLongestSubstringCrude = function(s) {
 
 function lengthOfLongestSubstringWindow(s) {
 
-    if (s.length === 0) return 0;
-    if (s.length === 1) return 1;
+    if (s.length <= 1) return s.length;
     
     const subSet = new Set();
     let index = 0;
@@ -56,7 +55,7 @@ function lengthOfLongestSubstringWindow(s) {
 
         subSet.add(char);
         currentLength++;
-        
+
         if (currentLength > maxLength) maxLength = currentLength;
     }
 
