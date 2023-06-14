@@ -10,9 +10,8 @@ var lengthOfLongestSubstring = function(s) {
     let subChar; 
     let maxLength = 0;
 
-    for (const char in s) {
-        subStr = s[char];
-
+    for (const char of s) {
+        subStr = char;
 
 
         for (let i = startPos+1; i < s.length; i++) {
