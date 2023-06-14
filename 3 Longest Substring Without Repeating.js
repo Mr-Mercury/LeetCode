@@ -1,4 +1,4 @@
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstringCrude = function(s) {
     // Have a start string position
     // Record position of start and add a sliding position at the next spot
     // Check each next position as you slide down
@@ -36,6 +36,27 @@ var lengthOfLongestSubstring = function(s) {
 
 };
 
+function lengthOfLongestSubstringWindow(testCase) {
+    
+    let startPos = 0;
+    let subStr = s[0];
+    let subChar; 
+    let maxLength = 1;
+
+    for (const char of s) {
+        
+        if (!subStr.includes(char)) {
+            subStr = subStr+char;
+            maxLength = subStr.length;
+        }
+
+        if (subStr.includes(char)) {
+            subStr = subStr.slice(1); 
+            subStr = subStr+char;
+        }
+
+    }
+}
 const testCase = "pwwkew";
 
-console.log(lengthOfLongestSubstring(testCase));
+console.log(lengthOfLongestSubstringCrude(testCase));
