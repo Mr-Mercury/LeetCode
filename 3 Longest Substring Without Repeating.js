@@ -13,7 +13,6 @@ var lengthOfLongestSubstring = function(s) {
     for (const char of s) {
         subStr = char;
 
-
         for (let i = startPos+1; i < s.length; i++) {
             subChar = s[i];
 
@@ -29,12 +28,14 @@ var lengthOfLongestSubstring = function(s) {
         }
 
         if (subStr.length > maxLength) maxLength = subStr.length;
+
+        startPos++;
     }
 
     return maxLength;
 
 };
 
-const testCase = "abcabcbb";
+const testCase = "pwwkew";
 
 console.log(lengthOfLongestSubstring(testCase));
