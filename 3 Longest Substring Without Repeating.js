@@ -37,15 +37,23 @@ var lengthOfLongestSubstringCrude = function(s) {
 };
 
 function lengthOfLongestSubstringWindow(s) {
+
+    if (s.length === 0) return 0;
+    if (s.length === 1) return 1;
     
-    let startPos = 0;
-    let subStr = '';
-    let subChar; 
-    let maxLength = 1;
+    const subSet = new Set();
+    let index = 0;
+    let maxLength = 0; 
 
     for (const char of s) {
 
-        
+        while (subSet.has(char)) {
+            subSet.delete(s[index]);
+            index++;
+        }
+
+        subSet.add(char);
+        maxLength = Math.max(maxLength, )
     }
 
     return maxLength;
