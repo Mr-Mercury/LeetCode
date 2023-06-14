@@ -63,6 +63,7 @@ function lengthOfLongestSubstringWindow(s) {
 }
 
 var lengthOfLongestSubstringMap = function(s) {
+    
     let maxLength = 0;
     let left = 0; 
     let right = 0;
@@ -72,22 +73,27 @@ var lengthOfLongestSubstringMap = function(s) {
 
     while (right < s.length) {
 
-        let char = s[right]
+        let char = s[right];
         let index = charMap.get(char);
+        console.log(index)
+        console.log(left)
 
         if (index >= left) {
+            console.log(index);
+            console.log(left)
             left = index + 1;
         }
 
         charMap.set(char, right);
 
         right++;
+        console.log(right)
         maxLength = Math.max(maxLength, (right - left));
     }
 
     return maxLength;
 };
 
-const testCase = "pwwkew";
+const testCase = "pwwkkkew";
 
 console.log(lengthOfLongestSubstringMap(testCase));
