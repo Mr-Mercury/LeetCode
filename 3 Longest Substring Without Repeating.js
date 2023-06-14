@@ -36,18 +36,22 @@ var lengthOfLongestSubstringCrude = function(s) {
 
 };
 
-function lengthOfLongestSubstringWindow(testCase) {
+function lengthOfLongestSubstringWindow(s) {
     
     let startPos = 0;
-    let subStr = s[0];
+    let subStr = '';
     let subChar; 
     let maxLength = 1;
 
     for (const char of s) {
-        
+
+        console.log(subStr)
+        console.log(char);
+
         if (!subStr.includes(char)) {
             subStr = subStr+char;
             maxLength = subStr.length;
+            console.log(subStr)
         }
 
         if (subStr.includes(char)) {
@@ -56,7 +60,9 @@ function lengthOfLongestSubstringWindow(testCase) {
         }
 
     }
+
+    return maxLength;
 }
 const testCase = "pwwkew";
 
-console.log(lengthOfLongestSubstringCrude(testCase));
+console.log(lengthOfLongestSubstringWindow(testCase));
