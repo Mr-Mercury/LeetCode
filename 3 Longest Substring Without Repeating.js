@@ -45,20 +45,7 @@ function lengthOfLongestSubstringWindow(s) {
 
     for (const char of s) {
 
-        console.log(subStr)
-        console.log(char);
-
-        if (!subStr.includes(char)) {
-            subStr = subStr+char;
-            maxLength = subStr.length;
-            console.log(subStr)
-        }
-
-        if (subStr.includes(char)) {
-            subStr = subStr.slice(1); 
-            subStr = subStr+char;
-        }
-
+        
     }
 
     return maxLength;
