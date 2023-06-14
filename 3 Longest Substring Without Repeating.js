@@ -48,7 +48,6 @@ function lengthOfLongestSubstringWindow(s) {
 
     for (const char of s) {
 
-        
         while (subSet.has(char)) {
             subSet.delete(s[index]);
             index++;
@@ -57,11 +56,13 @@ function lengthOfLongestSubstringWindow(s) {
 
         subSet.add(char);
         currentLength++;
+        
         if (currentLength > maxLength) maxLength = currentLength;
     }
 
     return maxLength;
 }
+
 const testCase = "pwwkew";
 
 console.log(lengthOfLongestSubstringWindow(testCase));
