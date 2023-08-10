@@ -9,6 +9,7 @@ impl Solution {
         }
 
         let mut postfix = 1;
+        
         for i in (0..nums.len()).rev() {
             result[i] *= postfix;
             postfix *= nums[i];
