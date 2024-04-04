@@ -1,0 +1,66 @@
+// Option 1: Nested if statements & for loop (ON^3 max)
+// Option 2: Create object?  Go backwards from last index, checking if there
+// are smaller elements at lower indices? ***
+// Option 3: multiple pointers - swapping for smaller values as you traverse right
+
+
+
+var increasingTripletSlow = function(nums) {
+
+    if (nums.length < 2) return false; 
+    let counter1 = 0;
+    
+    for (let x = 0; x < nums.length-2; x++) {
+        for (let y = x+1; y < nums.length-1; y++) {
+            if(nums[x] < nums[y]) {
+                for (let z = y+1; z<nums.length; z++) {
+                    if (nums[y] < nums[z]) return true;
+                }
+            }
+        }
+    }
+
+    return false; 
+};
+
+
+// In memory of a failed implementation of two pointers
+var increasingTripletBad = function(nums) {
+
+    if (nums.length < 2) return false; 
+    let leftPoint = Infinity;
+    let midPoint = Infinity;
+
+    for (let x = 0; x < nums.length-2; x++) {
+        if (nums[x] < leftPoint) {
+            leftPoint = nums[x];
+            midPoint = nums[x+1];
+        }
+
+        if (nums[x+1] < midPoint) {midPoint = nums[x+1]}
+        console.log(leftPoint)
+        console.log(midPoint)
+        if (leftPoint < midPoint && midPoint < nums[x+2]) return true
+    }
+
+    return false;
+
+}
+
+var increasingTriplet = function(nums) {
+
+    if (nums.length < 2) return false; 
+    let first = Infinity;
+    let second = Infinity;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] <= first)
+            first = nums[i];
+        else if (nums[i] <= second)
+            second = nums[i];
+        else return true;
+    }
+    return false;
+}
+
+console.log(increasingTriplet([20,100,10,12,5,13]));
