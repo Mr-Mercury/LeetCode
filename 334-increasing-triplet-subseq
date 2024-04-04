@@ -47,6 +47,15 @@ var increasingTripletBad = function(nums) {
 
 }
 
+// First, check if it's smaller than the left pointer.  if it is, replace
+// and loop.  If it's larger, check if it's smaller than second pointer. 
+// if it's smaller, replace and continue. 
+// Lastly, if it's larger than both the left and mid pointers, then that means
+// it fits the terms of the problem, so you can submit it as true. 
+// Note, you must use <= because if it's the same value...
+// Then shifting second to that value violates the conditions. 
+
+
 var increasingTriplet = function(nums) {
 
     if (nums.length < 2) return false; 
